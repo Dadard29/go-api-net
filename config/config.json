@@ -1,0 +1,24 @@
+{
+  "api": {
+    "infos": {
+      "title": "Net-Utils",
+      "version": "{{VERSION}}",
+      "description": "Some utils for NET usage and IP location",
+      "contactEmail": "florian.charpentier67@gmail.com",
+      "license": "WTFPL",
+      "licenseUrl": "http://wtfpl.net"
+    },
+    "server": {
+      "host": "0.0.0.0",
+      "port": "8080",
+      "readTimeout": "15",
+      "writeTimeout": "15",
+      "idleTimeout": "60"
+    }
+  },
+  "iplocation": {
+    "api": {
+      "url": "https://api.ipgeolocation.io/ipgeo?apiKey=%s&ip=%s"
+    }
+  }
+}
