@@ -12,5 +12,6 @@ func TestApi(t *testing.T) {
 		"url": "https://api.ipgeolocation.io/ipgeo?apiKey=%s&ip=%s",
 	}
 
+
 	repositories.LocationRepository(ip, config)
 }
