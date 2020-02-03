@@ -15,11 +15,16 @@ var logger = log.NewLogger("REPOSITORY", logLevel.DEBUG)
 var key = os.Getenv("API_KEY")
 
 func LocationRepository(ip string, config map[string]string) models.Location {
-
 	var location models.Location
+
+	if key == "" {
+		logger.Error("invalid API_KEY variable")
+		return location
+	}
+
 	client := &http.Client{}
 
-	urlWithParams := fmt.Sprintf(config["url"], key, ip)
+	urlWithParams := fmt.Sprintf(config["url"], key, "51.83.46.84")
 	req, err := http.NewRequest(http.MethodGet, urlWithParams, nil)
 	logger.CheckErr(err)
 
