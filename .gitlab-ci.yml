@@ -2,6 +2,9 @@ image: docker:stable
 stages:
   - build
 
+services:
+  - docker:dind
+
 build-and-test:
   stage: build
   script:
