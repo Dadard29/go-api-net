@@ -1,22 +1,17 @@
 image: golang:1.13-alpine
 stages:
   - build
-  - test
+
+variables:
+  GITHUB_REPO: "github.com/Dadard29/go-api-net"
 
 before_script:
   - apk add --update git
-  - go get -v github.com/tools/godep
-  - ln -s /builds /go/src/github.com
-  - cd /go/src/github.com/Dadard29/go-api-net
+  - apk add gcc
 
-build-project:
+build-and-test:
   stage: build
   script:
-    - godep restore
-    - godep go build
-
-test-project:
-  stage: test
-  script:
-    - godep restore
-    - godep go test -v -cover ./...
+    - go get -v $GITHUB_REPO
+    - cd src/$GITHUB_REPO
+    - go test -v ./...
