@@ -13,5 +13,4 @@ build-and-test:
   stage: build
   script:
     - go get -v $GITHUB_REPO
-    - cd src/$GITHUB_REPO
-    - go test -v ./...
+    - go test -v $GITHUB_REPO/...
