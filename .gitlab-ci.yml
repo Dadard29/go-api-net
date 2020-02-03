@@ -1,0 +1,21 @@
+image: golang:1.13-alpine
+stages:
+  - build
+  - test
+
+before_script:
+  - go get -v github.com/tools/godep
+  - ln -s /builds /go/src/github.com
+  - cd /go/src/github.com/Dadard29/go-api-net
+
+build-project:
+  stage: build
+  script:
+    - godep restore
+    - godep go build
+
+test-project:
+  stage: test
+  script:
+    - godep restore
+    - godep go test -v -cover ./...
