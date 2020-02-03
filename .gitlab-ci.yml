@@ -8,6 +8,7 @@ variables:
 before_script:
   - apk add --update git
   - apk add gcc
+  - apk add libc-dev
 
 build-and-test:
   stage: build
